@@ -1,0 +1,23 @@
+{
+  "name": "esy-freetype",
+  "version": "0.1.0",
+  "description": "Mirror of freetype2",
+  "license": "MIT",
+  "esy": {
+    "build": [
+        ["bash", "-c", "#{os == 'windows' ? './esy/configure-windows.sh' : './esy/configure.sh'}"],
+        ["./esy/build.sh"],
+        ["./esy/test.sh"]
+    ],
+    "buildsInSource": "_build"
+  },
+  "dependencies": {
+      "@bryphe/esy-cmake": "*"
+  },
+  "resolutions": {
+      "@bryphe/esy-cmake": "github:bryphe/esy-cmake#ce77f48"
+  },
+  "devDependencies": {
+      "@bryphe/esy-cmake": "*"
+  }
+}
