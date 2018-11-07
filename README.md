@@ -1,3 +1,8 @@
+### `esy` build status:
+[![Build Status](https://dev.azure.com/esy-packages/esy-freetype2/_apis/build/status/esy-packages.esy-freetype2)](https://dev.azure.com/esy-packages/esy-freetype2/_build/latest?definitionId=3)
+
+---
+
   FreeType 2.9.1
   ==============
 
