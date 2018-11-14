@@ -17,6 +17,16 @@ jobs:
   - script: brew install libpng
   - template: esy-build-steps.yml
 
+# Exercise harfbuzz dependency
+- job: MacOS2
+  displayName: "MacOS w/ harfbuzz"
+  pool:
+    vmImage: 'macOS 10.13'
+  steps:
+  - script: brew update
+  - script: brew install libpng harfbuzz
+  - template: esy-build-steps.yml
+
 - job: Windows
   pool:
     vmImage: 'vs2017-win2016'
