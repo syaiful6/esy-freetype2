@@ -1,5 +1,6 @@
 ### `esy` build status:
 [![Build Status](https://dev.azure.com/esy-packages/esy-freetype2/_apis/build/status/esy-packages.esy-freetype2)](https://dev.azure.com/esy-packages/esy-freetype2/_build/latest?definitionId=3)
+[![npm version](https://badge.fury.io/js/esy-freetype2.svg)](https://badge.fury.io/js/esy-freetype2)
 
 ---
 
