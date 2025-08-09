@@ -4,7 +4,7 @@
  *
  *   FreeType low-level system interface definition (specification).
  *
- * Copyright 1996-2018 by
+ * Copyright (C) 1996-2024 by
  * David Turner, Robert Wilhelm, and Werner Lemberg.
  *
  * This file is part of the FreeType project, and may only be used,
@@ -20,8 +20,6 @@
 #define FTSYSTEM_H_
 
 
-#include <ft2build.h>
-#include FT_TYPES_H
 
 
 FT_BEGIN_HEADER
@@ -87,7 +85,7 @@ FT_BEGIN_HEADER
    */
   typedef void*
   (*FT_Alloc_Func)( FT_Memory  memory,
-                    size_t     size );
+                    long       size );
 
 
   /**************************************************************************
@@ -141,8 +139,8 @@ FT_BEGIN_HEADER
    */
   typedef void*
   (*FT_Realloc_Func)( FT_Memory  memory,
-                      size_t     cur_size,
-                      size_t     new_size,
+                      long       cur_size,
+                      long       new_size,
                       void*      block );
 
 
@@ -231,7 +229,7 @@ FT_BEGIN_HEADER
    *     A handle to the source stream.
    *
    *   offset ::
-   *     The offset of read in stream (always from start).
+   *     The offset from the start of the stream to seek to.
    *
    *   buffer ::
    *     The address of the read buffer.
@@ -240,11 +238,9 @@ FT_BEGIN_HEADER
    *     The number of bytes to read from the stream.
    *
    * @return:
-   *   The number of bytes effectively read by the stream.
-   *
-   * @note:
-   *   This function might be called to perform a seek or skip operation with
-   *   a `count` of~0.  A non-zero return value then indicates an error.
+   *   If count >~0, return the number of bytes effectively read by the
+   *   stream (after seeking to `offset`).  If count ==~0, return the status
+   *   of the seek operation (non-zero indicates an error).
    *
    */
   typedef unsigned long
@@ -282,7 +278,7 @@ FT_BEGIN_HEADER
    * @input:
    *   base ::
    *     For memory-based streams, this is the address of the first stream
-   *     byte in memory.  This field should always be set to NULL for
+   *     byte in memory.  This field should always be set to `NULL` for
    *     disk-based streams.
    *
    *   size ::

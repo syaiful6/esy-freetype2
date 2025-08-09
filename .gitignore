@@ -3,4 +3,5 @@ objs/vc2010/
 build
 
 _build/
+_esy/
 node_modules/
